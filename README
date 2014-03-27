@@ -1,0 +1,5 @@
+This gets list of documents matching search terms on the WikiLeaks search. Currently it only works for cables, but it will be expanded to work with other document sets.
+
+To use-
+w = WLSearchScraper.new("search terms")
+w.scrape
