@@ -64,7 +64,13 @@ class WLSearchScraper
       elsif !(a.empty?) && (a[0]["title"] == "Markings")
         cablehash[:markings] = t.css("div[2]").text
       elsif !(a.empty?) && (a[0]["title"] == "To")
-        cablehash[:to] = t.css("div[2]").text
+        to = t.css("div[2]").text
+        splitto = to.split(" | ")
+        splitarray = Array.new
+        splitto.each do |s|
+          splitarray.push(s.strip)
+        end
+        cablehash[:to] = splitarray
       elsif !(a.empty?) && (a[0]["title"] == "Linked documents or other documents with the same ID")
         cablehash[:linked_docs] = t.css("div[2]").text
       end
@@ -84,4 +90,3 @@ class WLSearchScraper
     return cablehash
   end
 end
-
